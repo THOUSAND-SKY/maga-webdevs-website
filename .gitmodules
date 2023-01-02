@@ -1,0 +1,3 @@
+[submodule "sites/maga/themes/anatole-zola"]
+	path = sites/maga/themes/anatole-zola
+	url = https://github.com/longfangsong/anatole-zola.git

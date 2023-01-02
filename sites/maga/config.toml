@@ -1,0 +1,75 @@
+# The URL the site will be built for
+base_url = "https://example.com"
+description = "Make America Great Again Websites"
+title = "MAGA Websites"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+theme = "anatole-zola"
+
+# default_language = "en"
+
+# taxonomies broke
+# taxonomies = [
+#   {name = "tags", feed = true, paginate_by = 5},
+# ]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = false
+
+external_links_no_follow = false
+external_links_no_referrer = false
+external_links_target_blank = true
+
+[extra]
+# Put all your custom variables here
+
+[languages.en.translations]
+about = "About"
+archive = "Archive"
+date_format = "%Y-%m-%d"
+home = "Home"
+language_name = "English"
+last_page = "Last Page"
+links = "Links"
+next_page = "Next Page"
+tags = "Tags"
+
+# [languages.zh.translations]
+# about = "关于"
+# archive = "归档"
+# date_format = "%Y-%m-%d"
+# home = "首页"
+# language_name = "中文"
+# last_page = "上一页"
+# links = "友链"
+# next_page = "下一页"
+# tags = "标签"
+
+# [languages.de.translations]
+# about = "Info"
+# archive = "Archiv"
+# date_format = "%d-%m-%Y"
+# home = "Home"
+# language_name = "Deutsch"
+# last_page = "Vorherige Seite"
+# links = "Links"
+# next_page = "Nächste Seite"
+# tags = "Kategorien"
+
+# [languages.sv.translations]
+# about = "Info"
+# archive = "Arkiv"
+# date_format = "%Y-%m-%d"
+# home = "Hem"
+# language_name = "Svenska"
+# last_page = "Sista Sidan"
+# links = "Länkar"
+# next_page = "Nästa Sidan"
+# tags = "Etiketter"
