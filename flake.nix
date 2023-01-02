@@ -1,14 +1,31 @@
 {
-  description = "The webdev website";
+  description = "Webdev website flake";
 
-  inputs.nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
-
-  outputs = { self, nixpkgs, flake-utils }: {
-
-    packages.x86_64-linux.zola = nixpkgs.legacyPackages.x86_64-linux.zola;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.zola;
-
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    utils.url = "github:numtide/flake-utils";
   };
+
+  outputs = { self, nixpkgs, utils, ... }:
+    let
+      pkgsFor = system: import nixpkgs {
+        inherit system;
+        overlays = [ self.overlay ];
+      };
+    in
+    {
+      overlay = final: prev: {
+        maga = prev.callPackage ./sites/maga { };
+      };
+
+    } // utils.lib.eachDefaultSystem (system:
+      let pkgs = pkgsFor system;
+      in {
+        defaultPackage = pkgs.maga;
+        devShell = pkgs.mkShell {
+          buildInputs = [
+            pkgs.zola
+          ];
+        };
+      });
 }

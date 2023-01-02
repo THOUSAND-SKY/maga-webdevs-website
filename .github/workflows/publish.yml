@@ -1,0 +1,28 @@
+name: Zola publish GH pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  zola:
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: https://github.com/getzola/zola/releases/download
+      VERS: v0.15.2
+      ARCH: x86_64-unknown-linux-gnu
+      # https://github.com/crazy-max/ghaction-github-pages/issues/1#issuecomment-623202206
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v18
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: nix build && ls && ls result && ls result/*
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: result

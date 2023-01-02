@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://example.com"
+base_url = "https://thousand-sky.github.io/maga-webdevs-website"
 description = "Make America Great Again Websites"
 title = "MAGA Websites"
 
