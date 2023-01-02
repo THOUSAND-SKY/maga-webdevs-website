@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://thousand-sky.github.io/maga-webdevs-website/sitemap.xml
